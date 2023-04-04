@@ -7,8 +7,8 @@ const MeetupDetails = ({ meetupData }) => {
   return (
     <>
       <Head>
-        <title>{meetupData.title}</title>
-        <meta name="description" content={meetupData.description} />
+        <title>{meetupData?.title}</title>
+        <meta name="description" content={meetupData?.description} />
       </Head>
       <MeetupDetail {...meetupData} />
     </>
