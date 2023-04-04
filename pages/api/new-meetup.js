@@ -2,12 +2,11 @@ import { MongoClient } from "mongodb";
 
 export default async function handler(req, res) {
   if (req.method == 'POST') {
-    const client = await MongoClient.connect('mongodb://localhost:27017/meetupnext');
+    const client = await MongoClient.connect('mongodb+srv://nexttest:tobi1&onlY@tobytodo.miw4lu4.mongodb.net/NextTest?retryWrites=true&w=majority');
     const db = client.db();
 
-    const meetupsCollection = db.collection('meetupnext');
-    const response = await meetupsCollection.insertOne(req.body);
-    console.log(response);
+    const collection = db.collection('NextTest');
+    await collection.insertOne(req.body);
     client.close();
     res.status(201).json({ message: 'Meetup inserted!' });
   }

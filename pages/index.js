@@ -24,11 +24,11 @@ const HomePage = ({ meetups }) => {
 // };
 
 export const getStaticProps = async () => {
-  const client = await MongoClient.connect('mongodb://localhost:27017/meetupnext');
+  const client = await MongoClient.connect('mongodb+srv://nexttest:tobi1&onlY@tobytodo.miw4lu4.mongodb.net/NextTest?retryWrites=true&w=majority');
   const db = client.db();
 
-  const meetupsCollection = db.collection('meetupnext');
-  const meetups = await meetupsCollection.find().toArray();
+  const collection = db.collection('NextTest');
+  const meetups = await collection.find().toArray();
   client.close();
   return {
     props: {
